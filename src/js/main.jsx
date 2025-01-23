@@ -9,10 +9,27 @@ import "bootstrap"
 import '../styles/index.css'
 
 // components
-import Home from './components/Home';
+import Clock from './components/Clock';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Home/>
-  </React.StrictMode>,
-)
+let myVar = 0;
+setInterval(() => {
+  const first=Math.floor(myVar/1000);
+  const second=Math.floor(myVar/100);
+  const third=Math.floor(myVar/10);
+  const fourth=Math.floor(myVar);
+
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    <React.StrictMode>
+      <Clock
+        firstDigit={first}
+        secondDigit={second}
+        thirdDigit={third}
+        fourthDigit={fourth}
+      />
+    </React.StrictMode>,
+  );
+
+  myVar++;
+},100)
+
+
